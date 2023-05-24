@@ -2,6 +2,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 public class NetIO {
@@ -27,8 +28,8 @@ public class NetIO {
                 socket.setSoTimeout(Globals.TIME_OUT);
                 DataOutputStream out = new DataOutputStream(socket.getOutputStream());
                 out.writeUTF(message);
-                Scanner in = new Scanner(socket.getOutputStream());
-                errorCode = in.nextInt();
+                DataInputStream in = new DataInputStream(socket.getOutputStream());
+                errorCode = in.readInt();
             } catch (IOException e) {
                 System.out.println("Attempt " + attempts);
             }
@@ -40,8 +41,15 @@ public class NetIO {
         String request = "";
         int errorCode = Globals.NET_RECEIVE_ERROR;
         try {
+            ServerSocket server = new ServerSocket(Globals.PORT_NUMBER, Globals.QUEUE_SIZE);
+            Socket socket = server.accept();
+                DataInputStream in = new DataInputStream(socket.getOutputStream());
+            message = in.readUTF();
+                DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+                out.writeInt(Globals.NET_OK);
             
         } catch (IOException e) {
+            System.out.println("error when receiving request");
             e.printStackTrace();
         }
         return request;
