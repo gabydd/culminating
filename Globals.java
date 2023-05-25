@@ -10,4 +10,5 @@ public class Globals {
     public static final int PORT_NUMBER = 5000;
     public static final int TIME_OUT = 10 * 1000;
     public static final int QUEUE_SIZE = 100;
+    public static String clientIPAddress = "";
 }
