@@ -11,4 +11,9 @@ public class Globals {
     public static final int TIME_OUT = 10 * 1000;
     public static final int QUEUE_SIZE = 100;
     public static String clientIPAddress = "";
+    public static final int GAME_STILL_ON = -1;
+    public static final int NO_PLAYER = 0;
+    public static final int PLAYER_ONE = 1;
+    public static final int PLAYER_TWO = 2;
+    public static final int GAME_TIE = 0;
 }
