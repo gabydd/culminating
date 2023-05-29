@@ -16,4 +16,11 @@ public class Globals {
     public static final int PLAYER_ONE = 1;
     public static final int PLAYER_TWO = 2;
     public static final int GAME_TIE = 0;
+
+    public static final int FRAME_X = 250;
+    public static final int FRAME_Y = 100;
+    public static final int ROW_WIDTH = 100;
+    public static final int COL_WIDTH = 100;
+    public static final int ROWS = 100;
+    public static final int COLS = 100;
 }
