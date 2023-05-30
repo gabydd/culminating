@@ -1,3 +1,5 @@
+import javax.swing.JLabel;
+
 public class Globals {
     public static final int NET_OK = 0;
     public static final int NET_SEND_ERROR = -1;
@@ -19,8 +21,11 @@ public class Globals {
 
     public static final int FRAME_X = 250;
     public static final int FRAME_Y = 100;
-    public static final int ROW_WIDTH = 100;
-    public static final int COL_WIDTH = 100;
-    public static final int ROWS = 100;
-    public static final int COLS = 100;
+    public static final int ROW_WIDTH = 200;
+    public static final int COL_WIDTH = 200;
+    public static final int ROWS = 3;
+    public static final int COLS = 3;
+
+    public static GridPanel[][] grid = new GridPanel[3][3];
+    public static JLabel status = new JLabel("Game status: ");
 }

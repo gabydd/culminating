@@ -6,19 +6,29 @@ public class ClientTicTacToe extends JFrame {
     public static void main(String[] args) {
         JFrame mainWindow = new JFrame();
         mainWindow.setTitle("not shown");
+        mainWindow.setResizable(false);
         mainWindow.setLocation(Globals.FRAME_X, Globals.FRAME_Y);
         mainWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        mainWindow.setResizable(false);
         JPanel tttPanel = new JPanel();
-        GridPanel grid = new GridPanel(Color.BLACK, 0, 0);
-        tttPanel.add(grid);
+        tttPanel.setLayout(new GridLayout(Globals.ROWS, Globals.COLS));
+        for (int i = 0; i < Globals.ROWS; i++) {
+
+            for (int j = 0; j < Globals.COLS; j++) {
+                Globals.grid[i][j] = new GridPanel(new Color(60, 30, 170), i, j);
+                tttPanel.add(Globals.grid[i][j]);
+            }
+        }
+        GridBagConstraints constrains = new GridBagConstraints();
+        GridBagLayout bagLayout = new GridBagLayout();
+        mainWindow.getContentPane().setLayout(bagLayout);
+        constrains.gridx = 0;
+        constrains.gridy = Globals.ROWS;
+        constrains.anchor = GridBagConstraints.LINE_START;
+        Globals.status.setFont(new Font("Iosevka", Font.BOLD, 18));
+        mainWindow.getContentPane().add(Globals.status, constrains);
+
         mainWindow.getContentPane().add(tttPanel);
         mainWindow.pack();
         mainWindow.setVisible(true);
-        // new ClientTicTacToe();
-    }
-    public ClientTicTacToe() {
-        this.add(new GridPanel(Color.BLACK, 0, 0));
-        this.show();
     }
 }
