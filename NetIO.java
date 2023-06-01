@@ -61,7 +61,12 @@ public class NetIO {
 	}
 
 	public static String myUsername() {
+		try {
 		return System.getProperty("user.name");
+		} catch (Exception e) {
+			System.out.println("Can't get username");
+			return "";
+		}
 	}
 
 }

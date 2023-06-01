@@ -4,8 +4,10 @@ import java.awt.*;
 
 public class ClientTicTacToe extends JFrame {
     public static void main(String[] args) {
+        String address = Utils.initialNetworkConnection();
+        System.out.println(address);
         JFrame mainWindow = new JFrame();
-        mainWindow.setTitle("not shown");
+        mainWindow.setTitle("title");
         mainWindow.setResizable(false);
         mainWindow.setLocation(Globals.FRAME_X, Globals.FRAME_Y);
         mainWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
