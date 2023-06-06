@@ -22,10 +22,24 @@ public class Utils {
                 Globals.serverIPAddress = serverAddresses[i];
             }
         }
+        if (serverName != null) {
+            clientRequest(Globals.REQUEST_TO_PLAY_GAME, 0, 0);
+        }
         return Globals.serverIPAddress;
     }
 
-    public static void clientRequest(char command, char row, char col) {
-        NetIO.sendRequest(command + col + row + Globals.user, Globals.serverIPAddress);
+    public static void clientRequest(char command, int row, int col) {
+        NetIO.sendRequest(command + (char)col + (char)row + leftPad(Globals.user, 15), Globals.serverIPAddress);
+    }
+
+    public static String leftPad(String s, int len) {
+        while (s.length() < len) {
+            s = "0" + s;
+        }
+        return s;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(leftPad(Globals.user, 15));
     }
 }
