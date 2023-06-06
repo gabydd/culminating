@@ -29,19 +29,15 @@ public class Globals {
     public static final int OFFSET = 15;
 
     public static GridPanel[][] grid = new GridPanel[3][3];
-    public static JLabel status = new JLabel("Tictactoe status: ");
+    public static JLabel status = new JLabel("TicTacToe message: ");
 
-    public static final String SERVER1_NAME = "Bob's Bar";
+    public static final String SERVER1_NAME = "Gaby's Garage";
     public static final String SERVER2_NAME = "Daniel's Dungeon";
     public static final String SERVER3_NAME = "Prasun and Suns";
-    public static final String SERVER4_NAME = "Tilted Towers";
-    public static final String SERVER5_NAME = "Gaby's Garage";
-    public static final String SERVER6_NAME = "Steven's Spa";
+    public static final String SERVER4_NAME = "Steven's Spa";
 
     public static final String SERVER1_ADDRESS = "10.100.2.101";
     public static final String SERVER2_ADDRESS = "10.100.2.102";
     public static final String SERVER3_ADDRESS = "10.100.2.103";
     public static final String SERVER4_ADDRESS = "10.100.2.104";
-    public static final String SERVER5_ADDRESS = "10.100.2.105";
-    public static final String SERVER6_ADDRESS = "10.100.2.106";
 }

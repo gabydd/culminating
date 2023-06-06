@@ -4,8 +4,15 @@ import java.awt.*;
 
 public class ClientTicTacToe extends JFrame {
     public static void main(String[] args) {
-        String address = Utils.initialNetworkConnection();
-        System.out.println(address);
+        Utils.initialNetworkConnection();
+        if (Globals.serverIPAddress != null) {
+            createWindow();
+        } else {
+            System.out.println("No server selected");
+        }
+    }
+
+    public static void createWindow() {
         JFrame mainWindow = new JFrame();
         mainWindow.setTitle("title");
         mainWindow.setResizable(false);
