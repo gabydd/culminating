@@ -36,7 +36,7 @@ public class Globals {
     public static final String SERVER3_NAME = "Prasun and Suns";
     public static final String SERVER4_NAME = "Steven's Spa";
 
-    public static final String SERVER1_ADDRESS = "10.100.2.101";
+    public static final String SERVER1_ADDRESS = "10.207.98.44";
     public static final String SERVER2_ADDRESS = "10.100.2.102";
     public static final String SERVER3_ADDRESS = "10.100.2.103";
     public static final String SERVER4_ADDRESS = "10.100.2.104";
