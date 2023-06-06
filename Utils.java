@@ -24,4 +24,8 @@ public class Utils {
         }
         return Globals.serverIPAddress;
     }
+
+    public static void clientRequest(char command, char row, char col) {
+        NetIO.sendRequest(command + col + row + Globals.user, Globals.serverIPAddress);
+    }
 }

@@ -40,4 +40,11 @@ public class Globals {
     public static final String SERVER2_ADDRESS = "10.100.2.102";
     public static final String SERVER3_ADDRESS = "10.100.2.103";
     public static final String SERVER4_ADDRESS = "10.100.2.104";
+
+    public static String user = "000000334683745"; // 15 chars
+    public static final char REQUEST_UNKNOWN = 255;
+    public static final char REQUEST_TO_PLAY_GAME = 245;
+    public static final char REQUEST_TO_PROCESS_PLAY = 244;
+    public static final char REQUEST_TO_TERMINATE_GAME = 243;
+    
 }
