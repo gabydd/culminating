@@ -23,13 +23,17 @@ public class Utils {
             }
         }
         if (serverName != null) {
-            clientRequest(Globals.REQUEST_TO_PLAY_GAME, 0, 0);
+            int errorCode = clientRequest(Globals.REQUEST_TO_PLAY_GAME, 0, 0);
+            if (errorCode != Globals.NET_OK) {
+                JOptionPane.showMessageDialog(null, "Server doesn't like you", "TicTacToe Connection", JOptionPane.ERROR_MESSAGE);
+                Globals.serverIPAddress = null;
+            }
         }
         return Globals.serverIPAddress;
     }
 
-    public static void clientRequest(char command, int row, int col) {
-        NetIO.sendRequest(command + (char)col + (char)row + leftPad(Globals.user, 15), Globals.serverIPAddress);
+    public static int clientRequest(char command, int row, int col) {
+        return NetIO.sendRequest(command + (char)col + (char)row + leftPad(Globals.user, 15), Globals.serverIPAddress);
     }
 
     public static String leftPad(String s, int len) {
