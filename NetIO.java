@@ -18,12 +18,14 @@ public class NetIO {
 		}
 		return "";
 	}
+
 	private static boolean isANumber(String num) {
-	    boolean result = true;
-	    for (int i = 0 ; i < num.length() ; i++)
-		result = result && Character.isDigit(num.charAt(i));
-	    return result;
+		boolean result = true;
+		for (int i = 0; i < num.length(); i++)
+			result = result && Character.isDigit(num.charAt(i));
+		return result;
 	}
+
 	public static int sendRequest(String message, String ip) {
 		int errorCode = Globals.NET_SEND_ERROR;
 		int attempts = 0;
@@ -36,7 +38,8 @@ public class NetIO {
 				out.writeUTF(message);
 				DataInputStream in = new DataInputStream(socket.getInputStream());
 				String request = in.readUTF();
-				if (isANumber(request)) errorCode = Integer.parseInt(request);
+				if (isANumber(request))
+					errorCode = Integer.parseInt(request);
 				socket.close();
 			} catch (IOException e) {
 				System.out.println("sendRequest attempt " + attempts);
@@ -68,7 +71,7 @@ public class NetIO {
 
 	public static String myUsername() {
 		try {
-		return System.getProperty("user.name");
+			return System.getProperty("user.name");
 		} catch (Exception e) {
 			System.out.println("Can't get username");
 			return "";
