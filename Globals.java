@@ -46,5 +46,4 @@ public class Globals {
     public static final char REQUEST_TO_PLAY_GAME = 245;
     public static final char REQUEST_TO_PROCESS_PLAY = 244;
     public static final char REQUEST_TO_TERMINATE_GAME = 243;
-    
 }
