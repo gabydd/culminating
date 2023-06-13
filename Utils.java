@@ -42,6 +42,10 @@ public class Utils {
 		}
 		return s;
 	}
+	
+	public static void updateStatusLine(String message) {
+	    Globals.status.setText("Game status: " + message);
+	}
 
 	public static void main(String[] args) {
 		System.out.println(leftPad(Globals.user, 15));

@@ -29,7 +29,7 @@ public class Globals {
     public static final int OFFSET = 15;
 
     public static GridPanel[][] grid = new GridPanel[3][3];
-    public static JLabel status = new JLabel("TicTacToe message: ");
+    public static JLabel status = new JLabel("Game status: ");
 
     public static final String SERVER1_NAME = "Gaby's Garage";
     public static final String SERVER2_NAME = "Daniel's Dungeon";
@@ -45,5 +45,15 @@ public class Globals {
     public static final char REQUEST_UNKNOWN = 255;
     public static final char REQUEST_TO_PLAY_GAME = 245;
     public static final char REQUEST_TO_PROCESS_PLAY = 244;
-    public static final char REQUEST_TO_TERMINATE_GAME = 243;
+    public static final char COMMAND_GAME_TERMINATE = 243;
+    public static final char COMMAND_TO_WAIT = 242;
+    public static final char COMMAND_TO_START_GAME = 241;
+    public static final char COMMAND_YOUR_TURN = 240;
+    public static final char COMMAND_GAME_OVER = 239;
+    public static final char COMMAND_DISPLAY_MESSAGE = 238;
+    public static final char REQUEST_TO_DISCONNECT = COMMAND_GAME_TERMINATE;
+    
+    public static boolean gameOver = false;
+    public static int iAmPlayer = 0;
+    public static int currentPlayer = 0;
 }
