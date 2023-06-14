@@ -34,18 +34,20 @@ public class GridPanel extends JPanel {
 	}
 	private class MoveListener extends MouseAdapter {
 		public void mousePressed(MouseEvent e) {
-			if (Globals.currentPlayer == Globals.iAmPlayer && !Globals.gameOver && val == Globals.NO_PLAYER) {
-			    int errorCode = Utils.clientRequest(Globals.REQUEST_TO_PROCESS_PLAY, row, col, "");
-			    if (errorCode == Globals.NET_OK) {
-				setVal(Globals.iAmPlayer);
-				drawXorO();
-				String request = NetIO.receiveRequest();
-				NodeInfo commandFromServer = new NodeInfo(request);
-				int row = Integer.parseInt(commandFromServer.getRowColPlayer().substring(0, 1));
-				int col = Integer.parseInt(commandFromServer.getRowColPlayer().substring(1, 2));                                
-				Globals.grid[row][col].setVal(1 - Globals.iAmPlayer);  
-			    }
-			}
+			setVal(Globals.iAmPlayer);
+			drawXorO();
+			// if (Globals.currentPlayer == Globals.iAmPlayer && !Globals.gameOver && val == Globals.NO_PLAYER) {
+			//     int errorCode = Utils.clientRequest(Globals.REQUEST_TO_PROCESS_PLAY, row, col, "");
+			//     if (errorCode == Globals.NET_OK) {
+			// 		setVal(Globals.iAmPlayer);
+			// 		drawXorO();
+			// 		String request = NetIO.receiveRequest();
+			// 		NodeInfo commandFromServer = new NodeInfo(request);
+			// 		int row = Integer.parseInt(commandFromServer.getRowColPlayer().substring(0, 1));
+			// 		int col = Integer.parseInt(commandFromServer.getRowColPlayer().substring(1, 2));
+			// 		Globals.grid[row][col].setVal(1 - Globals.iAmPlayer);
+			//     }
+			// }
 		}
 	}
 }
