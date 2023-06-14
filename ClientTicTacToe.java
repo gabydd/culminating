@@ -18,6 +18,7 @@ public class ClientTicTacToe extends JFrame {
 	mainWindow.setResizable(false);
 	mainWindow.setLocation(Globals.FRAME_X, Globals.FRAME_Y);
 	mainWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	mainWindow.addWindowListener(new WindowEventHandler());
 	JPanel tttPanel = new JPanel();
 	tttPanel.setLayout(new GridLayout(Globals.ROWS, Globals.COLS));
 	for (int i = 0; i < Globals.ROWS; i++) {
@@ -61,10 +62,14 @@ public class ClientTicTacToe extends JFrame {
 	    case Globals.COMMAND_YOUR_TURN:
 		break;
 	    case Globals.COMMAND_GAME_OVER:
+		Globals.gameOver = true;
+		Utils.updateStatusLine(commandFromServer.getMessage());
 		break;
 	    case Globals.COMMAND_GAME_TERMINATE:
+		Utils.updateStatusLine(commandFromServer.getMessage());
 		break;
 	    case Globals.COMMAND_DISPLAY_MESSAGE:
+		Utils.updateStatusLine(commandFromServer.getMessage());
 		break;
 	    default:
 		break;

@@ -23,7 +23,7 @@ public class Utils {
 			}
 		}
 		if (serverName != null) {
-			int errorCode = clientRequest(Globals.REQUEST_TO_PLAY_GAME, '0', '0', "");
+			int errorCode = clientRequest(Globals.REQUEST_TO_PLAY_GAME, 0, 0, "");
 			if (errorCode != Globals.NET_OK) {
 				JOptionPane.showMessageDialog(null, "Server doesn't like you", "TicTacToe Connection",
 						JOptionPane.ERROR_MESSAGE);
@@ -32,8 +32,8 @@ public class Utils {
 		}
 	}
 
-	public static int clientRequest(char command, char row, char col, String message) {
-		return NetIO.sendRequest("" + command + col + row + leftPad(Globals.user, 15) + leftPad(NetIO.myIP(), 15) + (message.length() > 0 ? message : "null message"), Globals.serverIPAddress);
+	public static int clientRequest(char command, int row, int col, String message) {
+		return NetIO.sendRequest("" + command + Integer.toString(col) + Integer.toString(row) + leftPad(Globals.user, 15) + leftPad(NetIO.myIP(), 15) + (message.length() > 0 ? message : "null message"), Globals.serverIPAddress);
 	}
 
 	public static String leftPad(String s, int len) {
@@ -46,7 +46,16 @@ public class Utils {
 	public static void updateStatusLine(String message) {
 	    Globals.status.setText("Game status: " + message);
 	}
-
+	
+	public static void delay (int ms) {
+	    try {
+		Thread.sleep(ms);
+	    }
+	    catch (InterruptedException ex) {
+		Thread.currentThread ().interrupt ();
+	    }
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(leftPad(Globals.user, 15));
 	}
