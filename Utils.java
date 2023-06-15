@@ -33,7 +33,7 @@ public class Utils {
 	}
 
 	public static int clientRequest(char command, int row, int col, String message) {
-		return NetIO.sendRequest("" + command + Integer.toString(col) + Integer.toString(row) + leftPad(Globals.user, 15) + leftPad(NetIO.myIP(), 15) + (message.length() > 0 ? message : "null message"), Globals.serverIPAddress);
+		return NetIO.sendRequest("" + command + Integer.toString(row) + Integer.toString(col) + leftPad(Globals.user, 15) + leftPad(NetIO.myIP(), 15) + (message.length() > 0 ? message : "null message"), Globals.serverIPAddress);
 	}
 
 	public static String leftPad(String s, int len) {
